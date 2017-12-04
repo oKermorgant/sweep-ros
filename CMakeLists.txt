@@ -32,12 +32,14 @@ catkin_package(
 )
 
 add_executable(sweep_node src/node.cpp)
-
 target_link_libraries(sweep_node ${catkin_LIBRARIES} ${LIBSWEEP_LIBRARY})
-
 target_include_directories(sweep_node SYSTEM PRIVATE ${LIBSWEEP_INCLUDE_DIR})
 
-install(TARGETS sweep_node
+add_executable(sweep_scan src/scan.cpp)
+target_link_libraries(sweep_scan ${catkin_LIBRARIES} ${LIBSWEEP_LIBRARY})
+target_include_directories(sweep_scan SYSTEM PRIVATE ${LIBSWEEP_INCLUDE_DIR})
+
+install(TARGETS sweep_node sweep_scan
         ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
         LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
