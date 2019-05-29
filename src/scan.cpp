@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) try
 
     // laser scan base msg
     sensor_msgs::LaserScan msg;
-    msg.header.frame_id = "laser_frame";
+    msg.header.frame_id = "laser";
     msg.angle_min = -M_PI;
     msg.angle_max = M_PI;
     msg.angle_increment = 0.01;
